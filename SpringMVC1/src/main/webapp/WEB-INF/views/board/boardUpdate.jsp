@@ -20,7 +20,7 @@
           <tr>
             <td colspan="2" align="center">
                <button type="submit" class="btn btn-primary btn-sm">수정</button>
-               <button type="reset" class="btn btn-warning btn-sm">취소</button>
+               <button type="reset" class="btn btn-warning btn-sm">되돌리기</button>
                <button type="button" class="btn btn-info btn-sm" onclick="location.href='../boardList.do'">목록</button>
             </td>
           </tr>

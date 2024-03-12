@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Spring MVC01</title>
+  <title>Spring MVC</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -15,6 +15,6 @@
 <body>
  
 <div class="container">
-  <h2>Spring MVC01</h2>
+  <h2>Spring MVC</h2>
   <div class="panel panel-default">
-    <div class="panel-heading" onClick="location.href='boardList.do'" style="cursor:pointer">BOARD</div>
+    <div class="panel-heading" onClick="location.href='${cp}/boardList.do'" style="cursor:pointer">BOARD</div>

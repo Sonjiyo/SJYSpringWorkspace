@@ -3,7 +3,24 @@
 <mapper namespace="com.mysql.board.mapper.BoardMapper">
 
 	<select id="getBoardList" resultType="com.mysql.board.entity.Board">
-		select * form myboard order by idx desc
+		select * from myboard order by idx desc
 	</select>
 
+	<select id="boardContent" resultType="com.mysql.board.entity.Board">
+     	select * from myboard where idx=#{idx}
+  	</select>
+	
+	<insert id="addBoard" parameterType="com.mysql.board.entity.Board">
+		insert into myboard(title,content,writer) values(#{title},#{content},#{writer})
+	</insert>
+	
+	<update id="updateBoard" parameterType="com.mysql.board.entity.Board">
+		update myboard set title=#{title}, content=#{content}
+     	where idx=#{idx}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="Integer">
+		delete from myboard where idx=#{idx}
+	</delete>
+	
 </mapper>

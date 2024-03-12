@@ -19,7 +19,7 @@
          <tr>
            <td colspan="2" align="center">
                <button type="submit" class="btn btn-success btn-sm">등록</button>
-               <button type="reset" class="btn btn-warning btn-sm">취소</button>
+               <div class="btn btn-warning btn-sm" onclick="location.href='${cp}/boardList.do'" style="cursor:pointer">취소</div>
            </td>
          </tr>
       </table>
