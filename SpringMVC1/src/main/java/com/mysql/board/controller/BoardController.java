@@ -34,13 +34,11 @@ public class BoardController {
 	}
 	
 	@GetMapping("/boardList.do")
-	public String index() {
-		return "index";
-	}
-	
-	@GetMapping("/boardList.do")
 	public String boardList(Model model) {
 		List<Board> list = mapper.getBoardList();
+		for(Board b : list) {
+			b.setIndate(b.getIndate().split(" ")[0]);
+		}
 		model.addAttribute("list", list);
 		return "board/boardList";
 	}
@@ -60,6 +58,7 @@ public class BoardController {
 	public String boardContent(int idx, Model model) {
 		Board board = mapper.boardContent(idx);
 		board.setContent(board.getContent().replace("\n", "<br/>"));
+		board.setIndate(board.getIndate().split(" ")[0]);
 		model.addAttribute("vo",board);
 		return "board/boardContent";
 	}
@@ -80,6 +79,12 @@ public class BoardController {
 	@GetMapping("/boardDelete.do/{idx}")
 	public String boardDelete(@PathVariable("idx") int idx) {
 		mapper.deleteBoard(idx);
+		return "redirect:/boardList.do";
+	}
+	
+	@GetMapping("/removeMemberBoard.do/{writer}")
+	public String boardDelete(@PathVariable("writer") String writer) {
+		mapper.removeMemberBoard(writer);
 		return "redirect:/boardList.do";
 	}
 }

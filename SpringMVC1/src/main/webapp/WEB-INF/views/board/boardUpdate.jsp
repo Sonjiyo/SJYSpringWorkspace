@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../parts/header.jsp"%>
     <div class="panel-body">
-       <form action="../boardUpdate.do" method="post">
+       <form action="boardUpdate.do" method="post">
          <input type="hidden" name="idx" value="${vo.idx}"/>
         <table class="table table-bordered">       
           <tr>
@@ -21,7 +21,7 @@
             <td colspan="2" align="center">
                <button type="submit" class="btn btn-primary btn-sm">수정</button>
                <button type="reset" class="btn btn-warning btn-sm">되돌리기</button>
-               <button type="button" class="btn btn-info btn-sm" onclick="location.href='../boardList.do'">목록</button>
+               <button type="button" class="btn btn-info btn-sm" onclick="location.href='${cp}/boardList.do'">목록</button>
             </td>
           </tr>
         </table>    

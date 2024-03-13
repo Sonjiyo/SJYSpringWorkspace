@@ -14,7 +14,7 @@
          </tr>
          <tr>
            <td>작성자</td>
-           <td><input type="text" name="writer" class="form-control"/></td>
+           <td><input type="text" name="writer" class="form-control" value="${log}" readonly/></td>
          </tr>
          <tr>
            <td colspan="2" align="center">

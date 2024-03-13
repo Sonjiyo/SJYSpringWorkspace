@@ -15,11 +15,13 @@
             <td>${vo.idx}</td>
             <td><a href="boardContent.do?idx=${vo.idx}">${vo.title}</a></td>
             <td>${vo.writer}</td>
-            <td>${fn:split(vo.indate," ")[0]}</td>
+            <td>${vo.indate}</td>
             <td>${vo.count}</td>
            </tr>
           </c:forEach>
-       </table>    
+       </table>
+       <c:if test="${log ne null}">    
        <a href="boardForm.do" class="btn btn-primary btn-sm">글쓰기</a>
+       </c:if>
     </div>
 <%@ include file="../parts/footer.jsp"%>

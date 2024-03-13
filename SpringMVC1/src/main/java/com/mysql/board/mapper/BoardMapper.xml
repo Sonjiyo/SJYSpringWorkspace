@@ -23,4 +23,8 @@
 		delete from myboard where idx=#{idx}
 	</delete>
 	
+	<delete id="removeMemberBoard" parameterType="String">
+		delete from myboard where writer like #{writer}
+	</delete>
+	
 </mapper>
