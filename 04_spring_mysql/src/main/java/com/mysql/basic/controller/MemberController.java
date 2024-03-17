@@ -1,5 +1,6 @@
 package com.mysql.basic.controller;
 
+import java.net.http.HttpRequest;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mysql.basic.entity.Member;
@@ -28,7 +30,7 @@ public class MemberController {
 		return request.getContextPath();
 	}
 	
-	@RequestMapping(value="/member/userMenu")
+	@RequestMapping(value="/member/userMenu" , method = RequestMethod.GET)
 	public String userMenu() {
 		return "/member/userMenu";
 	}
@@ -49,7 +51,7 @@ public class MemberController {
 	@PostMapping("/member/joinPro")
 	public String joinPro( Member member) {
 		System.out.println("Member = " + member);
-		memberDAO.memberJoin(member); // db ���� 
+		memberDAO.joinMember(member); // db 저장 
 		return "redirect:/member/list";
 	}
 	
@@ -65,7 +67,6 @@ public class MemberController {
 		if(check == 1) {
 			session.setAttribute("log", member.getId());
 		}
-		session.setAttribute("test" , "test");
 		model.addAttribute("check" , check);
 //		model.addAttribute("id", member.getId());
 	
@@ -102,15 +103,15 @@ public class MemberController {
 		
 		System.out.println("modify Member = " + member);
 		member.setId((String)session.getAttribute("log"));
-		memberDAO.updateMember(member);
+		int check = memberDAO.updateMember(member);
+		if(check == 0 ) {
+			System.out.println(" 업데이트 실패 ");
+		}else {
+			System.out.println(" 업데이트 성공 ");
+		}
 	
 		return "redirect:/member/list";
 	}
 	
-	@GetMapping("/member/deletePro")
-	public String deletePro(HttpSession session){
-		memberDAO.deleteMember((String)session.getAttribute("log"));
-		session.invalidate();
-		return "/member/index";
-	}
+
 }

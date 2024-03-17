@@ -10,12 +10,12 @@
 </head>
 <body>
 	<h1>사용자 화면</h1>
-	<c:if test="${log eq null}">
+	<c:if test="${sessionScope.log eq null}">
 		<a href="${cp}/member/joinForm">회원가입</a>	<br>
 		<a href="${cp}/member/loginForm">로그인</a>	<br>
 	</c:if>
 	
-	<c:if test="${log ne null}">
+	<c:if test="${sessionScope.log ne null}">
 		<a href="${cp}/member/logout">로그아웃</a>		<br>
 		<a href="${cp}/member/modifyForm">정보수정</a>	<br>
 		<%-- 직접 구현해보세요. --%>

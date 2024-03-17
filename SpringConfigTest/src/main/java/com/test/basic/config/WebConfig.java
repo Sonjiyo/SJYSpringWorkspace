@@ -5,27 +5,35 @@ import javax.servlet.Filter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-// web.xmlÀ» ÀÚ¹Ù·Î ±¸ÇöÇÑ Å¬·¡½º
+
+//web.xml ì„ ìë°”ë¡œ êµ¬í˜„í•œ í´ë˜ìŠ¤ 
+
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer{
-	
-	//·çÆ® ÄÁÅØ½ºÆ® °´Ã¼
+
+	// ë£¨íŠ¸ ì»¨í…ìŠ¤íŠ¸ ê°ì²´
 	@Override
-	protected Class<?>[] getRootConfigClasses() { //root-context.xml
+	protected Class<?>[] getRootConfigClasses() {  // root-context.xml
+		// TODO Auto-generated method stub
 		return new Class[] { RootConfig.class };
 	}
 
-	//¼­ºí¸´ ÄÁÅØ½ºÆ® °´Ã¼
+	// ì„œë¸”ë › ì»¨í…ìŠ¤íŠ¸ ê°ì²´ 
 	@Override
-	protected Class<?>[] getServletConfigClasses() { //servlet-context.xml
+	protected Class<?>[] getServletConfigClasses() { // servlet-context.xml
+		// TODO Auto-generated method stub
 		return new Class[] { ServletConfig.class };
 	}
 	
-	//ÇÚµé·¯ ¸ÊÇÎ °´Ã¼
+	
+	// í•¸ë“¤ëŸ¬ ë§µí•‘ ê°ì²´ 
+
 	@Override
 	protected String[] getServletMappings() {
+		// TODO Auto-generated method stub
 		return new String[] { "/" };
 	}
-
+	
+	// í•œê¸€ ì¸ì½”ë”© í•„í„° 
 	@Override
 	protected Filter[] getServletFilters() {
 		CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
@@ -33,4 +41,7 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 		encodingFilter.setForceEncoding(true);		
 		return new Filter[]{encodingFilter};
 	}
+
+
+	
 }

@@ -1,4 +1,5 @@
 function registerCheck(cp) {
+
   let memID = document.getElementById('memID').value;
   if (!memID) {
     kindOfModal('panel-info');
@@ -6,6 +7,7 @@ function registerCheck(cp) {
     showModal();
     return;
   }
+  
   fetch(cp + '/member/memRegisterCheck.do?memID=' + encodeURIComponent(memID))
     .then((response) => {
       if (!response.ok) {
@@ -28,6 +30,7 @@ function registerCheck(cp) {
     .catch((error) => {
       console.error('There was a problem with the fetch operation:', error);
     });
+
 }
 
 function passwordCheck() {

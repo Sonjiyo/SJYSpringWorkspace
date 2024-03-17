@@ -33,6 +33,8 @@ public class MemberDAO {
 		}
 	}
 	
+	//ctrl + shfit	+ o => 자동 import 여러개 
+	
 	public ArrayList<Member> getMemberList(){
 		ArrayList<Member> memberList = new ArrayList<Member>();
 		
@@ -45,7 +47,6 @@ public class MemberDAO {
 			
 			while(rs.next()) {
 				Member member = new Member();
-				
 				member.setNum(rs.getInt(1));
 				member.setId(rs.getString(2));
 				member.setPw(rs.getString(3));
@@ -63,7 +64,8 @@ public class MemberDAO {
 		return memberList;
 	}
 	
-	public void memberJoin(Member member) {
+	
+	public void joinMember(Member member) {
 		try {
 			conn = dataSource.getConnection();
 			
@@ -105,7 +107,7 @@ public class MemberDAO {
 		
 		return check;
 	}
-	
+
 	public Member getOneMember(String id) {
 		Member member = new Member();
 		
@@ -132,7 +134,7 @@ public class MemberDAO {
 		return member;
 	}
 	
-	public void updateMember(Member member) {
+	public int updateMember(Member member) {
 		try {
 			conn = dataSource.getConnection();
 			
@@ -142,29 +144,15 @@ public class MemberDAO {
 			pstmt.setString(2, member.getEmail());
 			pstmt.setString(3, member.getId());
 			
-			pstmt.executeUpdate();
+			return pstmt.executeUpdate();
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			finallyClose();			
 		}
+		
+		return 0;
 	}
 	
-	public void deleteMember(String id) {
-		try {
-			conn = dataSource.getConnection();
-			
-			String sql = "delete from member where id like ?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-			
-			pstmt.executeUpdate();
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			finallyClose();			
-		}
-	}
 }

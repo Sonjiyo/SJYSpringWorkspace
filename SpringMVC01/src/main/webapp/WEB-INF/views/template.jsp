@@ -16,7 +16,7 @@
 <div class="container">
   <h2>Spring MVC01</h2>
   <div class="panel panel-default">
-    <div class="panel-heading" onClick="location.href='boardList.do'" style="cursor:pointer">BOARD</div>
+    <div class="panel-heading" onClick="location.href='boardList.do'">BOARD</div>
     <div class="panel-body">Panel Content</div>
     <div class="panel-footer"></div>
   </div>

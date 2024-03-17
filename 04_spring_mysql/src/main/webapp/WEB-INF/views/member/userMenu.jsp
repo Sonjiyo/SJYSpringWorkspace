@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>사용자 화면 : ${log}</h1>
+	<h1>사용자 화면</h1>
 	<c:if test="${sessionScope.log eq null}">
 		<a href="${cp}/member/joinForm">회원가입</a>	<br>
 		<a href="${cp}/member/loginForm">로그인</a>	<br>
@@ -19,9 +19,9 @@
 		<a href="${cp}/member/logout">로그아웃</a>		<br>
 		<a href="${cp}/member/modifyForm">정보수정</a>	<br>
 		<%-- 직접 구현해보세요. --%>
-		<a href="${cp}/member/deletePro">탈퇴</a>							<br>
+		<a href="#">탈퇴</a>							<br>
 	</c:if>
 	
-	<a href="${cp}/member/index">메인으로</a>			<br>
+	<a href="${cp}/">메인으로</a>			<br>
 </body>
 </html>

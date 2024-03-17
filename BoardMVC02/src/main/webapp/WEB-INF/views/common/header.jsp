@@ -19,8 +19,8 @@
       </ul>
       <c:if test="${empty mvo}">
 	      <ul class="nav navbar-nav navbar-right">
-	            <li><a href="${cp}/member/loginForm.do"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
-	            <li><a href="${cp}/member/joinForm.do"><span class="glyphicon glyphicon-user"></span> 회원가입</a></li>            
+	            <li><a href="${cp}/member/memLoginForm.do"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
+	            <li><a href="${cp}/member/memJoin.do"><span class="glyphicon glyphicon-user"></span> 회원가입</a></li>            
 	      </ul>
       </c:if>
       <c:if test="${!empty mvo}">
@@ -33,7 +33,7 @@
 			      <li style="height: 60px; line-height: 60px;" >${mvo.memName} 님 </li>
 			    </c:if>
 			    <c:if test="${!empty mvo.memProfile}">
-			      <li><img class="img-circle profile-img" src="${cp}/resources/upload/${mvo.memProfile}" style="width: 40px; height: 40px" /> ${mvo.memName} 님Welcome.</li>
+			      <li><img class="img-circle profile-img" src="${cp}/resources/upload/${mvo.memProfile}" style="width: 40px; height: 40px" /> ${mvo.memName} 님</li>
 			    </c:if>			  
 			  </c:if>
 	      </ul>

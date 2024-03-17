@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.test</groupId>
 	<artifactId>basic</artifactId>
-	<name>SpringConfigTest</name>
+	<name>configTest</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -153,15 +153,15 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
-            <!-- web.xml 없이 프로젝트 실행 -->
-            <plugin>
+            <!-- web.xml 없이 프로젝트 실행을 하겠다  -->
+                 <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
                 <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
-            </plugin>
+                </plugin>
             
         </plugins>
     </build>

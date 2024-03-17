@@ -27,5 +27,5 @@ public class _03Client {
 		return "_03Client [id=" + id + ", pw=" + pw + ", name=" + name + "]";
 	}
 	
-	
+
 }

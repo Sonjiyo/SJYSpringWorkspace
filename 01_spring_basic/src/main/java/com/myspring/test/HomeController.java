@@ -20,72 +20,72 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
+	
 
 	_01Member test1 = new _01Member();
 	
 	@Autowired
-	_01Member test2; //_01Member test1 = member;
+	_01Member test2;   // _01Member test2 = member;
 	
 	@Autowired
-	_01Member test3; //_01Member test1 = member;
+	_01Member test3;  // _01Member test2 = member;
 	
 	@Autowired
 	_02UserDAO userDAO;
 	
 	@Autowired
 	_03ClientDAO clientDAO;
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
+
 		
-		System.out.println(">> 1´Ü°è >>");
-		System.out.println("test1ÀÇ ÁÖ¼Ò = "+test1);
+		System.out.println(">> 1ë‹¨ê³„ >>  ");
+		System.out.println("test1ì˜ ì£¼ì†Œ = " + test1);
 		test1.setNum(100);
-		
 		test1.getNum();
 		
-		System.out.println("test2ÀÇ ÁÖ¼Ò = "+test2);
-		System.out.println("test3ÀÇ ÁÖ¼Ò = "+test3);
-		
+		System.out.println("test2ì˜ ì£¼ì†Œ = " + test2);
+		System.out.println("test3ì˜ ì£¼ì†Œ = " + test3);
+
 		test2.setNum(300);
 		
 		test2.getNum();
 		test3.getNum();
 		
-		System.out.println(">> 2´Ü°è >>  ");
+		System.out.println(">> 2ë‹¨ê³„ >>  ");
 		userDAO.print();
 		
-		System.out.println(">> 3´Ü°è >>  ");
-		
+		System.out.println(">> 3ë‹¨ê³„ >>  ");
 		String schoolName = clientDAO.getSchoolName();
-		System.out.println("schoolName = "+schoolName);
+		System.out.println("schoolName = " + schoolName);
 		
 		ArrayList<String> clist = clientDAO.getClientList();
-		for(String name : clist) {
+		for(String name: clist) {
 			System.out.println(name);
 		}
 		
-		System.out.println("=============================");
-
+		System.out.println("========================");
+		
 		HashMap<String, String> cMap1 = clientDAO.getClientMap1();
 		for(String key : cMap1.keySet()) {
-			System.out.println("key = "+key+" / value = "+cMap1.get(key));
+			System.out.println("key = " + key +" value=" + cMap1.get(key));
 		}
+		
+		System.out.println("========================");
 		
 		HashMap<String, _03Client> cMap2 = clientDAO.getClientMap2();
-		for(String key : cMap2.keySet()) {
-			System.out.println("key = "+key+" / value = "+cMap2.get(key));
-		}
-		
-		System.out.println("=============================");
-		
+//		for(String key : cMap2.keySet()) {
+//			System.out.println("key = " + key +" value=" + cMap2.get(key));
+//		}
+//		
 		Iterator<String> iter = cMap2.keySet().iterator();
 		while(iter.hasNext()) {
 			String key = iter.next();
-			System.out.println("key = "+key+" / value = "+cMap2.get(key));
+			System.out.println("key = " + key +" value=" + cMap2.get(key));
 		}
 		
-		return "home";
+		return "home";  //"/WEB-INF/"+home+".jsp";
 	}
 	
 }

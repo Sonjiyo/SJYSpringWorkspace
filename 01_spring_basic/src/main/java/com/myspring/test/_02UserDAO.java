@@ -1,9 +1,10 @@
 package com.myspring.test;
 
 public class _02UserDAO {
+
 	private _02User user;
 	
-	//»ı¼ºÀÚ ÁÖÀÔ
+	// ìƒì„±ì ì£¼ì… 
 	public _02UserDAO(_02User user) {
 		this.user = user;
 	}
@@ -11,4 +12,5 @@ public class _02UserDAO {
 	public void print() {
 		user.print();
 	}
+	
 }
